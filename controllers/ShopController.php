@@ -22,4 +22,14 @@ class ShopController extends Controller
         return $this->render('index');
     }
 
+    /**
+     * Displays item.
+     *
+     * @return string
+     */
+    public function actionItem()
+    {
+        return $this->render('item');
+    }
+
 }
