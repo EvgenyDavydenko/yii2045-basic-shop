@@ -22,13 +22,13 @@ class ShopController extends Controller
             'totalCount' => $query->count(),
         ]);
 
-        $posts = $query->orderBy('id')
+        $goods = $query->orderBy('id')
             ->offset($pagination->offset)
             ->limit($pagination->limit)
             ->all();
 
         return $this->render('index', [
-            'posts' => $posts,
+            'goods' => $goods,
             'pagination' => $pagination,
         ]);
     }
@@ -38,9 +38,12 @@ class ShopController extends Controller
      *
      * @return string
      */
-    public function actionItem()
+    public function actionItem($id)
     {
-        return $this->render('item');
+        //$id = \Yii::$app->request->get('id');
+        $good = Good::find()->where(['id' => $id])->one();
+        return $this->render('item', ['good' => $good]);
     }
+    
 
 }

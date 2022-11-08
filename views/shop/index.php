@@ -15,7 +15,7 @@
 </div>
 
 <div class="row">
-    
+
     <div class="col-lg-3">
         <button type="submit" class="btn btn-outline-dark btn-block">Cart</button>
         <div class="list-group mt-5">
@@ -27,17 +27,16 @@
 
     <div class="col-lg-9">
         <div class="row">
-            <?php foreach ($posts as $post): ?> 
+            <?php foreach ($goods as $good): ?> 
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#!"><img class="card-img-top" src="/img/<?= $post->img ?>" alt="..." /></a>
+                <div class="card">
+                    <a href="<?= \yii\helpers\Url::to(['shop/item', 'id'=>$good->id])?>"><img class="card-img-top" src="/img/<?= $good->img ?>" alt="..." /></a>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#!"><?= $post->name ?></a></h4>
+                        <h4 class="card-title"><?= $good->name ?></h4>
                         <p class="card-text">Категория</p>
                     </div>
-                    <div class="card-footer d-flex justify-content-around">
-                        <button type="submit" class="btn btn-outline-primary"><?= $post->price . ' ₽'?></button>
-                        <button type="submit" class="btn btn-outline-primary">В корзину</button>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-outline-primary btn-block"><?= $good->price . ' ₽'?></button>
                     </div>
                 </div>
             </div>
