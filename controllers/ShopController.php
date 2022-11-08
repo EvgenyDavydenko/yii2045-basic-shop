@@ -2,13 +2,9 @@
 
 namespace app\controllers;
 
-use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\Response;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use yii\data\Pagination;
+use app\models\Good;
 
 class ShopController extends Controller
 {
@@ -19,7 +15,22 @@ class ShopController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $query = Good::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 6,
+            'totalCount' => $query->count(),
+        ]);
+
+        $posts = $query->orderBy('id')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        return $this->render('index', [
+            'posts' => $posts,
+            'pagination' => $pagination,
+        ]);
     }
 
     /**
