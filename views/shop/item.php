@@ -1,21 +1,21 @@
 
 <div class="row mt-5">
+    
     <div class="col-lg-3">
-        <div class="list-group">
-            <a class="list-group-item active" href="#!">Category 1</a>
-            <a class="list-group-item" href="#!">Category 2</a>
-            <a class="list-group-item" href="#!">Category 3</a>
-        </div>
+        <?= \app\widgets\MenuWidget::widget()?>          
     </div>
+
     <div class="col-lg-9">
-        <div class="card">
-            <img class="card-img-top img-fluid" src="/img/<?=$good['img']?>" alt="..." />
-            <div class="card-body">
-                <h3 class="card-title"><?=$good['name']?></h3>
-                <h4><?=$good['price'] . ' ₽'?></h4>
-                <p class="card-text"><?=$good['descr']?></p>
+        <div class="row">
+            <div class="col-lg-8">
+                <img class="img-fluid rounded-circle" src="/img/<?=$good['img']?>" alt="..." />
             </div>
-        </div>
-        
+            <div class="col-lg-4 mt-5">            
+                <h2><?=$good['name']?></h2>
+                <p><?=$good['descr']?></p>
+                <button type="submit" class="btn btn-outline-dark btn-block"><?=$good['price'] . ' ₽'?></button>       
+            </div>            
+        </div>        
     </div>
+
 </div>
