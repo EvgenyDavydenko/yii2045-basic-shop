@@ -14,4 +14,8 @@ class Good extends ActiveRecord
         return 'good';
     }
 
+    public function getCategory()
+    {
+        return $this->hasOne(Category::class, ['id' => 'category_id']);
+    }
 }

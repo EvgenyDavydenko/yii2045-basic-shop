@@ -14,4 +14,9 @@ class Category extends ActiveRecord
         return 'category';
     }
 
+    // public function getGoods()
+    // {
+    //     return $this->hasMany(Good::class, ['category_id' => 'id']);
+    // }
+
 }

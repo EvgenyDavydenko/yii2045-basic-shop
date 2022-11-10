@@ -49,6 +49,9 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'shop/<id:[0-9]+>' => 'shop/category',
+                'item/<id:[0-9]+>' => 'shop/item',
+                '/' => 'shop/index'
             ],
         ],
         

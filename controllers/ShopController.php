@@ -16,17 +16,21 @@ class ShopController extends Controller
      */
     public function actionIndex()
     {
-        $query = Good::find();
+        $query = Good::find()->orderBy('id')
+            ->select('id, name, img, price, category_id')
+            ->with('category');
 
         $pagination = new Pagination([
             'defaultPageSize' => 6,
             'totalCount' => $query->count(),
         ]);
 
-        $goods = $query->orderBy('id')
-            ->offset($pagination->offset)
+        $goods = $query->offset($pagination->offset)
             ->limit($pagination->limit)
             ->all();
+        // echo '<pre>';
+        // var_dump($goods);
+        // var_dump($goods[0]->category);exit;
 
         return $this->render('index', [
             'goods' => $goods,
@@ -42,14 +46,15 @@ class ShopController extends Controller
     public function actionItem($id)
     {
         //$id = \Yii::$app->request->get('id');
-        $good = Good::find()->where(['id' => $id])->one();
+        $good = Good::findOne($id);
+        if(empty($good)) throw new NotFoundHttpException('Страница не найдена', 404);
         return $this->render('item', ['good' => $good]);
     }
 
     public function actionCategory($id)
     {
 
-        $query = Good::find()->where(['category' => $id]);
+        $query = Good::find()->where(['category_id' => $id]);
 
         $pagination = new Pagination([
             'defaultPageSize' => 3,
@@ -62,9 +67,8 @@ class ShopController extends Controller
         ->limit($pagination->limit)
         ->all();
 
-        if ($goods === null) {
-            throw new NotFoundHttpException;
-        }
+        if(empty($goods)) throw new NotFoundHttpException('Страница не найдена', 404);
+
         return $this->render('index', [
             'goods' => $goods,
             'pagination' => $pagination,

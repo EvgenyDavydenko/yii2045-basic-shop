@@ -13,7 +13,7 @@
                     <a href="<?= \yii\helpers\Url::to(['shop/item', 'id'=>$good->id])?>"><img class="card-img-top" src="/img/<?= $good->img ?>" alt="..." /></a>
                     <div class="card-body">
                         <h4 class="card-title"><?= $good->name ?></h4>
-                        <p class="card-text">Категория</p>
+                        <p class="card-text"><?= $good->category->name ?></p>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-outline-primary btn-block"><?= $good->price . ' ₽'?></button>
