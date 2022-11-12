@@ -16,7 +16,7 @@
                         <p class="card-text"><?= $good->category->name ?></p>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-outline-primary btn-block"><?= $good->price . ' ₽'?></button>
+                        <button type="button" data-name="<?= $good->id ?>" class="btn btn-outline-primary btn-block prod-add"><?= $good->price . ' ₽'?></button>
                     </div>
                 </div>
             </div>

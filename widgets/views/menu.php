@@ -1,5 +1,5 @@
 
-<button type="submit" class="btn btn-outline-dark btn-block">Cart</button>
+<button type="button" class="btn btn-outline-dark btn-block cart">Cart</button>
 
 <div class="input-group mt-5">
     <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
