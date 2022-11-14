@@ -75,13 +75,5 @@ class ShopController extends Controller
         ]);
     }
 
-    public function actionAdd($name)
-    {
-        //$id = \Yii::$app->request->get('id');
-        $good = Good::findOne($name);
-        if(empty($good)) throw new NotFoundHttpException('Страница не найдена', 404);
-        return $this->renderPartial('add', ['good' => $good]);
-    }
-    
 
 }

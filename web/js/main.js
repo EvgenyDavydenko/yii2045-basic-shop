@@ -2,16 +2,17 @@ $('.cart').on('click', function(){
     $('#cart').modal('show');
 });
 
-$('.prod-add').on('click', function(event){
+$('.add-to-cart').on('click', function(event){
     event.preventDefault();
-    let name = $(this).data('name');
-    console.log(name);
+    let id = $(this).data('id');
+    console.log(id);
 
     $.ajax({
-        url: 'shop/add',
-        data: {name: name},
+        url: '/shop/add',
+        data: {id: id},
         type: 'GET',
         success: function(res){
+            if(!res) alert('ошибка');
             $('#cart .modal-body').html(res);
         },
         error: function(){
