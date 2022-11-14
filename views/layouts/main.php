@@ -7,6 +7,7 @@ use app\assets\AppAsset;
 use app\widgets\Alert;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
+use yii\bootstrap4\Modal;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
@@ -77,7 +78,7 @@ AppAsset::register($this);
     </div>
 </footer>
 
-<div id="cart" class="modal" tabindex="-1">
+<!-- <div id="cart" class="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -95,7 +96,22 @@ AppAsset::register($this);
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+<?php
+Modal::begin([
+  'id' => 'cart',
+  'size' => 'modal-lg',
+  'title' => 'Корзина',
+  //'body' => 'Корзина пуста',
+  'footer' =>'<button type="button" class="btn btn-secondary" data-dismiss="modal">Продолжить покупки</button>
+              <button type="button" class="btn btn-primary">Оформить заказ</button>'
+]);
+
+echo 'корзина пуста';
+
+Modal::end();
+?>
 
 
 <?php $this->endBody() ?>

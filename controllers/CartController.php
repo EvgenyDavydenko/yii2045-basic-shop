@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\data\Pagination;
 use app\models\Good;
 
 class CartController extends Controller
@@ -16,8 +15,10 @@ class CartController extends Controller
         //$id = \Yii::$app->request->get('id');
         $good = Good::findOne($id);
         if(empty($good)) throw new NotFoundHttpException('Страница не найдена', 404);
-        $session = \Yii::$app->session;
+        //$session = \Yii::$app->session;
+        //$session->open();
         //if ();
+        //return 'hello';
         return $this->renderPartial('add', ['good' => $good]);
     }
     
