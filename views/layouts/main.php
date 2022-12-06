@@ -85,10 +85,8 @@ AppAsset::register($this);
     'size' => 'modal-lg',
     'title' => 'Корзина',
     'footer' =>'<button type="button" class="btn btn-secondary" data-dismiss="modal">Продолжить покупки</button>
-                <button type="button" class="btn btn-primary">Оформить заказ</button>'
+                <a href="/cart/index" class="btn btn-primary">Оформить заказ</a>'
   ]);
-
-  echo 'корзина пуста';
 
   Modal::end();
 ?>

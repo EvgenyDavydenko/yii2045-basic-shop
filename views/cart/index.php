@@ -7,7 +7,7 @@
                     <th>Наименование</th>
                     <th>Кол-во</th>
                     <th>Цена</th>
-                    <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
+                    <th><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></th>
                 </tr>
             </thead>
             <tbody>
@@ -17,7 +17,7 @@
                     <td><?= $item['name']?></td>
                     <td><?= $item['qty']?></td>
                     <td><?= $item['price']?></td>
-                    <td><span class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
+                    <td><button type="button" class="close">&times;</button></td>
                 </tr>
             <?php endforeach?>
                 <tr>

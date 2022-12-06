@@ -9,6 +9,11 @@ use app\models\Cart;
 
 class CartController extends Controller
 {
+    public function actionIndex() {
+        $session = \Yii::$app->session;
+        $session->open();
+        return $this->render('index', ['session' => $session]);
+    }
 
     public function actionAdd($id)
     {
@@ -18,7 +23,7 @@ class CartController extends Controller
         
         $cart = new Cart();
         $session = $cart->addToCart($good);
-        return $this->renderPartial('cart-modal', ['session' => $session]);
-    }    
+        return $this->renderPartial('index', ['session' => $session]);
+    }
 
 }
